@@ -62,7 +62,7 @@ export default function Header() {
           <NavLink to="/" className="flex items-center gap-3 shrink-0">
             <div className="leading-none">
               <div className="text-white font-black text-2xl md:text-[28px] tracking-tight">
-                COMPANY
+                SOLACHE CO
               </div>
               <div className="text-white text-[11px] md:text-xs font-semibold tracking-wide -mt-0.5">
                 Tagline goes here

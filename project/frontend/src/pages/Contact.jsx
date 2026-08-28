@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Button from "../components/common/Button.jsx";
+import {createPhoneChangeHandler} from "../utils/formatPhone.js"
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", address: "", phone: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const handlePhoneChange = createPhoneChangeHandler(setForm);
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -21,7 +23,7 @@ export default function Contact() {
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", address: "", phone: "", email: "", message: "" });
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -45,6 +47,23 @@ export default function Contact() {
           className="border border-neutral-300 rounded-sm px-4 py-3"
         />
         <input
+          name="address"
+          value={form.address}
+          onChange={handleChange}
+          placeholder="Service Address"
+          required
+          className="border border-neutral-300 rounded-sm px-4 py-3"
+        />
+        <input
+          name="phone"
+          type="tel"
+          value={form.phone}
+          onChange={handlePhoneChange}
+          placeholder="Phone Number"
+          required
+          className="border border-neutral-300 rounded-sm px-4 py-3"
+        />
+        <input
           name="email"
           type="email"
           value={form.email}
@@ -57,7 +76,7 @@ export default function Contact() {
           name="message"
           value={form.message}
           onChange={handleChange}
-          placeholder="Message"
+          placeholder="Service Needed"
           rows={5}
           required
           className="border border-neutral-300 rounded-sm px-4 py-3"
