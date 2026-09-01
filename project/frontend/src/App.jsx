@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx";
 import BookOnline from "./pages/BookOnline.jsx";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
+import ContactList from "./pages/admin/ContactList.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import TodoTutorial from "./pages/TodoTutorial.jsx";
 
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/todo-tutorial" element={<TodoTutorial />} />
+          <Route path="/contact-list" element={<ContactList />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

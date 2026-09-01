@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: "Contact", to: "/contact" },
   { label: "About", to: "/about" },
   { label: "Todo Tutorial", to: "/todo-tutorial" },
+  { label: "Contact List", to: "/contact-list" },
 ];
 
 function navLinkClasses({ isActive }) {
